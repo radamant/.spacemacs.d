@@ -274,7 +274,19 @@ you should place you code here."
    deft-recursive t
    deft-directory "~/Dropbox (Substantial)/Documents"
    deft-auto-save-interval 2.0)
-   ;;  org-agenda-files '("~/Dropbox (Substantial)/Notes"))
+  ;;  org-agenda-files '("~/Dropbox (Substantial)/Notes"))
+
+  (setq ;;org-capture-mode
+   org-capture-templates
+   '(("j" "Journal" entry (file+datetree "~/Dropbox (Substantial)/Documents/journal.org")
+    "* %?\nEntered on %U\n  %i")))
+
+  (global-set-key (kbd "M-F") 'fill-region)
+  (global-set-key (kbd "M-L") 'org-metaright)
+  (global-set-key (kbd "M-H") 'org-metaleft)
+
+  (define-key key-translation-map "\C-j" "\C-x")
+
 
 
   )
@@ -286,6 +298,7 @@ you should place you code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-hide-leading-stars t)
  '(package-selected-packages
    (quote
     (restclient ob-http uuidgen org-projectile org org-download link-hint github-search marshal ht flycheck-mix eyebrowse evil-visual-mark-mode evil-unimpaired f evil-ediff goto-chg undo-tree eshell-z diminish column-enforce-mode ruby-end alchemist company elixir-mode yaml-mode dockerfile-mode deft xterm-color shell-pop multi-term eshell-prompt-extras esh-help magit-gh-pulls github-clone github-browse-file git-link gist gh logito pcache omnisharp csharp-mode auto-complete flycheck toc-org smeargle orgit org-repo-todo org-present org-pomodoro alert log4e gntp org-plus-contrib org-bullets mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore request gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md evil-magit magit magit-popup git-commit with-editor ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline s powerline smooth-scrolling restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox hydra spinner page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-jumper evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-args evil-anzu anzu eval-sexp-fu highlight elisp-slime-nav define-word clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build use-package which-key bind-key bind-map evil spacemacs-theme))))
@@ -294,5 +307,6 @@ you should place you code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-level-2 ((t (:inherit bold :foreground "#2d9574" :height 1))))
+ '(org-level-3 ((t (:foreground "#67b11d" :weight normal :height 1)))))
 
